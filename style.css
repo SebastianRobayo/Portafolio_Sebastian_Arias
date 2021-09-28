@@ -10,6 +10,12 @@
 body{
     font-family: 'Raleway', sans-serif;
 }
+li{
+    margin-bottom: 15px;
+    /*font-weight: #fff;*/
+    color: var(--color-primary);
+}
+
 /*Sección hero*/
 .container{
     width: 90%;
@@ -278,4 +284,221 @@ body{
 
 .fab.footer_icon{
     line-height: 60px;
+}
+
+/*Ventana emergente*/
+.overlay{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.overlay.active{
+   visibility: visible;  
+}
+
+.popup{
+    background: #fff;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,.3);
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 800px;
+    transition: .5s ease all;
+    transform: scale(0.7);
+    opacity: 0;    
+}
+
+.popup .btn-cerrar-popup{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #bbbbbb;
+    transition: .3s ease all;    
+}
+
+.popup .btn-cerrar-popup:hover{
+    color: #000;
+}
+
+.popup h3{
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    opacity: 0;
+}
+
+/*Animaciones*/
+.popup.active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.popup.active h3{
+    animation: entradaTitulo .8s ease .5s forwards;
+}
+
+@keyframes entradaTitulo{
+    from{
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/*Responsive design*/
+
+@media screen and (max-width:800px){
+    :root{
+        --boton-padding: 18px 40px;
+    }
+    /*Navegación*/
+    .nav{
+        justify-content: space-around;
+    }
+
+    
+    .nav_items-cta{
+        border: none;
+    }
+
+    .nav_items{
+        font-weight: 400;
+        border-bottom: 1px solid #fff;
+        margin-right: 0;
+    }
+
+    .nav_items-footer{
+        border: none;
+    }
+    /*Hero*/
+    .hero_text{
+        width: 100%;
+        margin-bottom: 80px;
+    }
+
+    .hero_title{
+        font-size: 2.5rem;
+    }
+
+    .hero_subtitle{
+        font-size: 1.5rem;
+    }
+    /*About*/
+    .presentation_copy{
+        width: 100%;
+    }
+
+    .about{
+       grid-template-columns: 1fr; 
+    }
+
+    .about.container{
+        padding: 30px;
+    }
+
+    .about_img-left{
+        text-align: center;
+    }
+
+    .about_texts:last-child{
+        grid-row: 3/4;
+    }
+    /*Projects*/
+    .projects_grid{
+        grid-template-areas: 
+        "img1 img1 img2 img2"
+        "img1 img1 img3 img3"
+        "img4 img4 img5 img5";
+    }
+    /*Footer*/
+    .footer_grid{
+        grid-template-columns: 1fr;
+    }
+
+    .footer_contact{
+        grid-row: 1/2;
+    }
+}
+
+@media screen and (max-width: 500px){
+    :root{
+        --boton-padding: 18px 35px;
+    }
+
+    .subtitle{
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    /*Navegación*/
+    .nav{
+        flex-wrap:wrap;
+        justify-content: space-evenly;
+        margin-top: 10px;
+    }
+
+    .nav_items{
+        padding: 0 10px;
+        border: 0;
+    }
+    /*Hero*/
+    .hero_text{
+        text-align: center;        
+        margin-bottom: 100px;
+    }
+
+    .hero_title{
+        font-size: 2rem;
+    }
+
+    .hero_subtitle{
+        font-size: 1.5rem;
+    }
+    /*About*/
+    .presentation_copy{
+        width: 100%;
+    }
+
+    .about{
+       grid-template-columns: 1fr; 
+    }
+
+    .about.container{
+        padding: 30px;
+    }
+
+    .about_img-left{
+        text-align: center;
+    }
+
+    .about_texts:last-child{
+        grid-row: 3/4;
+    }
+    /*Projects*/
+    .projects_grid{
+        grid-template-areas: 
+        "img1 img1 img2 img2"
+        "img1 img1 img3 img3"
+        "img4 img4 img5 img5";
+    }
+    /*Footer*/
+    .footer_grid{
+        grid-template-columns: 1fr;
+    }
+
+    .footer_contact{
+        grid-row: 1/2;
+    }
 }
